@@ -17,7 +17,7 @@ export const getCategories = createAsyncThunk("category/fetching", async () => {
   // const { data }: AxiosResponse<CategoryResponseType[]> = await request.get(
   //   "category"
   // );
-  const { data } = await request.get("category");
+  const { data } = await request.get("categories");
   return data;
 });
 

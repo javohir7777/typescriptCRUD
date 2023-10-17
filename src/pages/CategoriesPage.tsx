@@ -36,7 +36,7 @@ const CategoriesPage = () => {
   const handleOk = async () => {
     try {
       const values: CategoryType = await form.validateFields();
-      await request.post("category", values);
+      await request.post("categories", values);
       closeModal();
       dispatch(getCategories());
     } catch (error) {
@@ -54,7 +54,6 @@ const CategoriesPage = () => {
     <div style={{ paddingTop: "20px" }}>
       <Flex justify="space-between">
         <h1>CategoriesPage {categories.length}</h1>
-        <input className="ant-input" type="text" ref={nameRef} />
         <Button onClick={showModal} className="primary">
           Add
         </Button>
@@ -91,7 +90,7 @@ const CategoriesPage = () => {
         >
           <Form.Item<CategoryType>
             label="Name"
-            name="name"
+            name="firstName"
             rules={[{ required: true, message: "Please fill!" }]}
           >
             <Input />
@@ -99,7 +98,7 @@ const CategoriesPage = () => {
 
           <Form.Item<CategoryType>
             label="Image"
-            name="image"
+            name="avatar"
             rules={[{ required: true, message: "Please fill!" }]}
           >
             <Input />

@@ -1,14 +1,21 @@
 import { Button, Card } from "antd";
 import { CategoryType } from "../../types/category";
+import { Link } from "react-router-dom";
 
 const { Meta } = Card;
 
-const CategoryCard = ({ name, image, id }: CategoryType) => {
+const CategoryCard = ({ firstName, avatar, id }: CategoryType) => {
   return (
-    <Card hoverable cover={<img height={200} src={image} alt={name} />}>
-      <Meta title={name} style={{ marginBottom: "20px" }} />
-      <Button>Edit</Button>
-      <Button danger>Delete</Button>
+    <Card hoverable cover={<img height={200} src={avatar} alt={firstName} />}>
+      <Meta title={firstName} style={{ marginBottom: "20px" }} />
+
+      <div style={{ display: "flex", gap: "2px" }}>
+        <Link to={`/categorie/${id}`}>
+          <Button type="primary">One Card {id}</Button>
+        </Link>
+        <Button>Edit</Button>
+        <Button danger>Delete</Button>
+      </div>
     </Card>
   );
 };

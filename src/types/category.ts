@@ -1,7 +1,7 @@
 export interface CategoryType {
   id: string;
-  name: string;
-  image: string;
+  firstName: string;
+  avatar: string;
 }
 
 export interface CategoryResponseType extends CategoryType {

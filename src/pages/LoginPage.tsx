@@ -9,7 +9,7 @@ import { TOKEN } from "../constants";
 
 const LoginPage = () => {
   const { setIsAuthenticated } = useContext(AuthContext);
-  
+
   const navigate = useNavigate();
   const onFinish = async (values: LoginType) => {
     try {
@@ -52,7 +52,7 @@ const LoginPage = () => {
           <Input.Password />
         </Form.Item>
 
-        <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
+        <Form.Item wrapperCol={{ offset: 0, span: 16 }}>
           <Button type="primary" htmlType="submit">
             Submit
           </Button>

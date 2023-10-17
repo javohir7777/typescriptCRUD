@@ -5,6 +5,7 @@ import LoginPage from "./pages/LoginPage";
 import CategoriesPage from "./pages/CategoriesPage";
 
 import { AuthContext } from "./context/AuthContext";
+import CardId from "./components/card/CardId";
 
 function App() {
   const { isAuthenticated } = useContext(AuthContext);
@@ -19,6 +20,7 @@ function App() {
             isAuthenticated ? <CategoriesPage /> : <Navigate to="/login" />
           }
         />
+        <Route path="/categorie/:id" element={<CardId />} />
       </Routes>
     </BrowserRouter>
   );
