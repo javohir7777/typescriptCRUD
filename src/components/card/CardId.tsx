@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import request from "../../server";
-import { Card, Col, Row, Spin } from "antd";
+import { Card, Col, Row } from "antd";
 import Meta from "antd/es/card/Meta";
 
 const CardId = () => {
