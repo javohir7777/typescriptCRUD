@@ -20,7 +20,7 @@ function App() {
             isAuthenticated ? <CategoriesPage /> : <Navigate to="/login" />
           }
         />
-        <Route path="/categorie/:id" element={<CardId />} />
+        <Route path="/categorie/:idx" element={<CardId />} />
       </Routes>
     </BrowserRouter>
   );
