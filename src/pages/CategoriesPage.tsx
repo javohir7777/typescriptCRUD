@@ -36,7 +36,11 @@ const CategoriesPage = () => {
   const handleOk = async () => {
     try {
       const values: CategoryType = await form.validateFields();
-      await request.post("categories", values);
+      if (selected === null) {
+        await request.post("categories", values);
+      } else {
+        await request.put(`/categories/${selected}`, values);
+      }
       closeModal();
       dispatch(getCategories());
     } catch (error) {
@@ -44,9 +48,21 @@ const CategoriesPage = () => {
     }
   };
 
-  
+  const deleteCategory = async (id: string) => {
+    await request.delete(`/categories/${id}`);
+    dispatch(getCategories());
+  };
 
-  console.log(loading, categories);
+  const editCategory = async (id: string) => {
+    setSelected(id);
+    const { data } = await request.get(`/categories/${id}`);
+    form.setFieldsValue(data);
+    dispatch(getCategories());
+
+    setIsModalOpen(true);
+  };
+
+  // console.log(loading, categories);
 
   return (
     <div style={{ paddingTop: "20px" }}>
@@ -68,7 +84,11 @@ const CategoriesPage = () => {
               md={8}
               lg={6}
             >
-              <CategoryCard {...category} />
+              <CategoryCard
+                deleteCategory={deleteCategory}
+                editCategory={editCategory}
+                {...category}
+              />
             </Col>
           ))}
         </Row>
