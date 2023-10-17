@@ -7,6 +7,7 @@ import CategoriesPage from "./pages/CategoriesPage";
 import { AuthContext } from "./context/AuthContext";
 import CardId from "./components/card/CardId";
 import AdminLayout from "./components/layout/Layout";
+import NotFoundPage from "./pages/NotFoundPage";
 
 function App() {
   const { isAuthenticated } = useContext(AuthContext);
@@ -15,23 +16,15 @@ function App() {
       <Routes>
         {isAuthenticated ? (
           <Route path="/" element={<AdminLayout />}>
-            <Route path="/categories" element={<CategoriesPage />} />
-            <Route path="/categorie/:idx" element={<CardId />} />
+            <Route path="categories" element={<CategoriesPage />} />
+            <Route path="categorie/:idx" element={<CardId />} />
           </Route>
         ) : null}
+
         <Route path="/" element={<Navigate to="/login" />} />
         <Route path="/login" element={<LoginPage />} />
-        {/* <Route path="/" element={<Navigate to="/login" />} />
-        <Route path="/login" element={<LoginPage />} />
 
-        <Route path="/categorie/:idx" element={<CardId />} />
-
-        <Route
-          path="/categories"
-          element={
-            isAuthenticated ? <CategoriesPage /> : <Navigate to="/login" />
-          }
-        /> */}
+        <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </BrowserRouter>
   );
