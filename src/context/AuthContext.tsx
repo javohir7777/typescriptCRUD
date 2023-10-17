@@ -3,7 +3,6 @@ import { ChildrenType } from "../types/children";
 import { AuthContextTypes } from "../types/auth-context";
 import { TOKEN } from "../constants";
 
-// export const AuthContext = createContext<AuthContextTypes | null>(null);
 export const AuthContext = createContext({} as AuthContextTypes);
 
 const AuthContextProvider = ({ children }: ChildrenType) => {

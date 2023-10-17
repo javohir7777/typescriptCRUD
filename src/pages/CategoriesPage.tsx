@@ -44,9 +44,7 @@ const CategoriesPage = () => {
     }
   };
 
-  const editCategory = (id: string) => {
-    setSelected(id);
-  };
+  
 
   console.log(loading, categories);
 
