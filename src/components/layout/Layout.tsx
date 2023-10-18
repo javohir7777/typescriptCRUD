@@ -44,7 +44,7 @@ const AdminLayout = () => {
               key: "/categories",
               icon: <DollarOutlined style={{ fontSize: "20px" }} />,
               label: (
-                <Link className="text-decoration-none" to="/skills">
+                <Link className="text-decoration-none" to="/categories">
                   Categories
                 </Link>
               ),

@@ -45,14 +45,16 @@ const CardId = () => {
   };
 
   const editCategoryId = async (id: number) => {
-    setSelected(id)
+    setSelected(id);
     const { data } = await request.get(`/categories/${idx}/products/${id}`);
     form.setFieldsValue(data);
     setIsModalOpen(true);
+    getCategoriesId();
   };
 
   const deleteCategoryId = async (id: number) => {
     await request.delete(`/categories/${idx}/products/${id}`);
+    getCategoriesId();
   };
   return (
     <div className="vh-100 d-flex align-items-center justify-content-center flex-column mt-5">
