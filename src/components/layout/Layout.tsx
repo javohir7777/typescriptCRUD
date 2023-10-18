@@ -51,10 +51,10 @@ const AdminLayout = () => {
             },
             {
               key: "/",
-              icon: <LogoutOutlined style={{ fontSize: "20px" }} />,
+
               label: (
                 <Button type="link" style={{ color: "#fff" }} onClick={logout}>
-                  Logout
+                  <LogoutOutlined style={{ fontSize: "20px" }} /> Logout
                 </Button>
               ),
             },
